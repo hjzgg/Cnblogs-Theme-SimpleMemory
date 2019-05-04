@@ -89,22 +89,10 @@
 <!-- global var -->
 <script type="text/javascript">
 
-    /*!
-     * UPDATES AND DOCS AT: https://github.com/BNDong
-     * https://www.cnblogs.com/bndong/
-     * @author: BNDong, dbnuo@foxmail.com
-     **/
-
     /**
      * 博客全局配置，请仔细配置！！
      */
     window.cnblogsConfig = {
-
-        // ---- GitHub文件源配置 ----
-        GhUserName: 'BNDong', // GitHub用户名(不是昵称)，注意大小写
-        GhRepositories: 'Cnblogs-Theme-SimpleMemory', // GitHub主题仓库名称
-        GhVersions : 'v1.0.0', // GitHub发布版本或提交哈希值，根据版本加载代码，我有时候会提交代码进行调试，大家最好加载我仓库代码此处的版本 https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/commits/master
-
         // ---- 基础信息配置 ----custom
         blogUser      : "胡峻峥", // 博主名称，文章后缀和主页图片上都会使用此名称
         blogAvatar    : "https://pic.cnblogs.com/avatar/640632/20160820111953.png", // 用户头像URL
@@ -126,7 +114,7 @@
         webpageTitleOnblurTimeOut : 500, // 当前页失去焦点，页面title变化，延时时间，单位毫秒
         webpageTitleFocus         : "(*´∇｀*) 欢迎回来！", // 当前页获取焦点，页面title显示文字，显示后延时恢复原title
         webpageTitleFocusTimeOut  : 1000, // 当前页获取焦点，页面title变化，延时时间，单位毫秒
-        webpageIcon : "https://files.cnblogs.com/files/bndong/blog_logo.gif", // 网站图标
+        webpageIcon : "http://images.cnblogs.com/cnblogs_com/hujunzheng/1456335/o_blog_logo.gif", // 网站图标
 
         // ---- 进度条配置 ----
         progressBar: {
@@ -243,16 +231,16 @@
     $.ajaxSetup({cache: true});
 
     // load loadingJs
-    $.getScript(getJsDelivrUrl('loading.js'), function () {
+    $.getScript(getJsDelivrUrl('cnblogs_loading.js'), function () {
 
         // Loading start
         pageLoading.initRebound();
         pageLoading.initSpinner();
         pageLoading.spinner.init(pageLoading.spring, true);
 
-        $.getScript(getJsDelivrUrl('jquery.mCustomScrollbar.min.js'), function () {
+        $.getScript(getJsDelivrUrl('cnblogs_jquery.mCustomScrollbar.min.js'), function () {
             $.getScript(getJsDelivrUrl('require.min.js'), function () {
-                $.getScript(getJsDelivrUrl('config.js'), function () {
+                $.getScript(getJsDelivrUrl('cnblogs_config.js'), function () {
                     var staticResource = [
                         'optiscroll', 'ToProgress', 'rotate',
                         'snapSvg', 'classie', 'main4', 'tools'];
@@ -269,7 +257,7 @@
     // get file url
     function getJsDelivrUrl(file, directory) {
         file = setFileNameMin(file, directory);
-        return 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/' + (file ? file : '');
+        return 'https://blog-static.cnblogs.com/files/hujunzheng/' + (file ? file : '');
     }
 
     // optimization file name
